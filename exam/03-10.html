@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>title</title>
+</head>
+<body>
+	<div id="app">
+		<levi></levi>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script>
+		var eventBus = new Vue();
+		
+		Vue.component('levi',{
+			template: "<div>하위 컴포넌트 영역입니다.<button v-on:click='showLog'>show</button></div>",
+			methods: {
+				showLog: function() {
+					eventBus.$emit('triggerBus', 100);
+				}
+			},
+		});
+
+		var app = new Vue({
+			el: "#app",
+			created: function() {
+				eventBus.$on('triggerBus', function(value) {
+					console.log('이벤트를 전달받음. 전달받은 값 : ', value);
+				})
+			},
+		});
+	</script>
+</body>
+</html>

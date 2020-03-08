@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>vue-test</title>
+</head>
+<body>
+	<ul id="list">
+		<levi v-bind:props속성이름="data메세지"></levi>
+	</ul>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script>
+		Vue.component('levi',{
+			props: ["props속성이름"],
+			template: "<li>테스트 아이템 {{props속성이름}}</li>",
+		});
+		
+		new Vue({
+			el: "#list",
+			components: ["levi"],
+			data: {
+				data메세지: "props - data 테스트",
+			},
+		});
+	</script>
+</body>
+</html>

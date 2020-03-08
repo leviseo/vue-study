@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>vue-test</title>
+</head>
+<body>
+	<div id="app">
+		<levi v-on:show-log="printText"></levi>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script>
+		Vue.component("levi", {
+			template: '<button v-on:click="showLog">버튼</button>',
+			methods: {
+				showLog: function() {
+					this.$emit('show-log');
+				}
+			},
+		});
+
+		var app = new Vue({
+			el: "#app",
+			components: ["levi"],
+			methods: {
+				printText: function() {
+					console.log('테스트입니다');
+				}
+			},
+		});
+	</script>
+</body>
+</html>

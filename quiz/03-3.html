@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Quiz 03-3</title>
+</head>
+<body>
+	<div id="app">
+		<child-component v-bind:popsdata="dataProps"></child-component>
+		<sibling-component v-bind:popsdata2="dataProps2"></sibling-component>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script>
+		Vue.component('child-component', {
+			props: ['popsdata'],
+			template: "<p>{{ popsdata }}</p>",
+		});
+
+		Vue.component('sibling-component', {
+			props: ['popsdata2'],
+			template: "<p>{{ popsdata2 }}</p>",
+		});
+
+		var app = new Vue({
+			el: "#app",
+			components: [
+				'child-component',
+				'sibling-component'
+			],
+			data: {
+				dataProps: '뭐라고?',
+				dataProps2: '형제라고??',
+			},
+		});
+	</script>
+</body>
+</html>
