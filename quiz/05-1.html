@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Vue Template Quiz</title>
+</head>
+<body>
+	<div id="app">
+		<header>
+			<h3>{{ message }}</h3>
+			{{ testMsg }}
+		</header>
+		<section>
+			<p v-bind:id="uid"></p>
+			<button v-on:click="ClickBtn">alert</button>
+			<button v-on:click="eventMethod">추가한 이벤트 메소드</button>
+			<ul v-if="flag">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</section>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script>
+		new Vue({
+			el: "#app",
+			data: {
+				message: 'Helllo Vue.js!',
+				testMsg: '레쨩 잘하고있어!',
+				uid: '20',
+				flag: false,
+			},
+			methods: {
+				ClickBtn() {
+					console.log("hi");
+				},
+				eventMethod: function() {
+					alert('#3 eventMethod 추가했어여');
+				}
+			},
+		})
+	</script>
+</body>
+</html>

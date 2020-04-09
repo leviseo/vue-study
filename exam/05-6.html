@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Vue Template - Directives</title>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click="popupAlert(10)">경고 창 버튼</button><br>
+		<button type="button" v-on:click="clickBtn">클릭</button>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script>
+		new Vue({
+			el: "#app",
+			methods: {
+				popupAlert: function(num) {
+					return alert('clicked ' + num + ' times');
+				},
+				clickBtn : function(event) {
+					console.log(event);
+				}
+			},
+		})
+	</script>
+</body>
+</html>
