@@ -1,2 +1,2 @@
 # vue-study
-test
+test2
